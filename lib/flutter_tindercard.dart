@@ -217,14 +217,14 @@ class _TinderSwapCardState extends State<TinderSwapCard>
             if (widget._allowVerticalMovement == true) {
               frontCardAlign = Alignment(
                 frontCardAlign.x +
-                    details.delta.dx * 20 / MediaQuery.of(context).size.width * 2,
+                    details.delta.dx * 20 / 2000,
                 frontCardAlign.y +
-                    details.delta.dy * 30 / MediaQuery.of(context).size.height * 2,
+                    details.delta.dy * 30 / 2000,
               );
             } else {
               frontCardAlign = Alignment(
                 frontCardAlign.x +
-                    details.delta.dx * 20 / MediaQuery.of(context).size.width * 2,
+                    details.delta.dx * 20 / 2000,
                 0,
               );
 
