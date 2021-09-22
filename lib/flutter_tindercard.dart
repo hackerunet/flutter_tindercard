@@ -217,14 +217,14 @@ class _TinderSwapCardState extends State<TinderSwapCard>
             if (widget._allowVerticalMovement == true) {
               frontCardAlign = Alignment(
                 frontCardAlign.x +
-                    details.delta.dx * 20 / MediaQuery.of(context).size.width,
+                    details.delta.dx * 20,
                 frontCardAlign.y +
-                    details.delta.dy * 30 / MediaQuery.of(context).size.height,
+                    details.delta.dy * 30,
               );
             } else {
               frontCardAlign = Alignment(
                 frontCardAlign.x +
-                    details.delta.dx * 20 / MediaQuery.of(context).size.width,
+                    details.delta.dx * 20,
                 0,
               );
 
@@ -369,8 +369,8 @@ class CardAnimation {
 
     if (_TinderSwapCardState._trigger == TriggerDirection.none) {
       endX = beginAlign.x > 0
-          ? (beginAlign.x > swipeEdge ? beginAlign.x + 1.0 : baseAlign.x)
-          : (beginAlign.x < -swipeEdge ? beginAlign.x - 1.0 : baseAlign.x);
+          ? (beginAlign.x > swipeEdge ? beginAlign.x + 10.0 : baseAlign.x)
+          : (beginAlign.x < -swipeEdge ? beginAlign.x - 10.0 : baseAlign.x);
       endY = beginAlign.x > 3.0 || beginAlign.x < -swipeEdge
           ? beginAlign.y
           : baseAlign.y;
@@ -379,11 +379,11 @@ class CardAnimation {
         if (beginAlign.y < 0) {
           if (swipeUp) {
             endY =
-                beginAlign.y < -swipeEdge ? beginAlign.y - 1.0 : baseAlign.y;
+                beginAlign.y < -swipeEdge ? beginAlign.y - 10.0 : baseAlign.y;
           }
         } else if (beginAlign.y > 0) {
           if (swipeDown) {
-            endY = beginAlign.y > swipeEdge ? beginAlign.y + 1.0 : baseAlign.y;
+            endY = beginAlign.y > swipeEdge ? beginAlign.y + 10.0 : baseAlign.y;
           }
         }
       }
@@ -395,16 +395,16 @@ class CardAnimation {
     else if (_TinderSwapCardState._trigger == TriggerDirection.up ||
         _TinderSwapCardState._trigger == TriggerDirection.down) {
       var beginY =
-          _TinderSwapCardState._trigger == TriggerDirection.up ? -1 : 1;
+          _TinderSwapCardState._trigger == TriggerDirection.up ? -10 : 10;
 
-      endY = beginY < -swipeEdge ? beginY - 1.0 : baseAlign.y;
+      endY = beginY < -swipeEdge ? beginY - 10.0 : baseAlign.y;
 
       endX = beginAlign.x > 0
-          ? (beginAlign.x > swipeEdge ? beginAlign.x + 1.0 : baseAlign.x)
-          : (beginAlign.x < -swipeEdge ? beginAlign.x - 1.0 : baseAlign.x);
+          ? (beginAlign.x > swipeEdge ? beginAlign.x + 10.0 : baseAlign.x)
+          : (beginAlign.x < -swipeEdge ? beginAlign.x - 10.0 : baseAlign.x);
     } else {
       endX = beginAlign.x + swipeEdge;
-      endY = beginAlign.y + 0.1;
+      endY = beginAlign.y + 0.5;
     }
     return AlignmentTween(
       begin: beginAlign,
