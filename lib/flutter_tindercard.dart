@@ -224,7 +224,7 @@ class _TinderSwapCardState extends State<TinderSwapCard>
             } else {
               frontCardAlign = Alignment(
                 frontCardAlign.x +
-                    details.delta.dx * 5 / MediaQuery.of(context).size.width,
+                    details.delta.dx * 20 / 300,
                 0,
               );
 
