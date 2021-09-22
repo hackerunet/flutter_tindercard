@@ -53,7 +53,7 @@ class TinderSwapCard extends StatefulWidget {
     AmassOrientation orientation = AmassOrientation.bottom,
     int stackNum = 3,
     int animDuration = 800,
-    double swipeEdge = 3.0,
+    double swipeEdge = 1.0,
     double swipeEdgeVertical = 8.0,
     bool swipeUp = false,
     bool swipeDown = false,
@@ -217,14 +217,14 @@ class _TinderSwapCardState extends State<TinderSwapCard>
             if (widget._allowVerticalMovement == true) {
               frontCardAlign = Alignment(
                 frontCardAlign.x +
-                    details.delta.dx * 20 / 2000,
+                    details.delta.dx * 20 / MediaQuery.of(context).size.width,
                 frontCardAlign.y +
-                    details.delta.dy * 30 / 2000,
+                    details.delta.dy * 30 / MediaQuery.of(context).size.height,
               );
             } else {
               frontCardAlign = Alignment(
                 frontCardAlign.x +
-                    details.delta.dx * 20 / 2000,
+                    details.delta.dx * 20 / MediaQuery.of(context).size.width,
                 0,
               );
 
